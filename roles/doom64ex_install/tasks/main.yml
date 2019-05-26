@@ -1,0 +1,26 @@
+---
+# tasks file for doom64ex_install
+# Note: 
+#  - You need put in the "role" file directory named "original_n64_rom" the Doom64 ROM
+#
+- name: 'Install Components to Compile'
+  import_tasks: install_requirements.yml
+
+- name: 'Clone the Doom64Ex Sourcode'
+  import_tasks: clone_doom64ex_repo.yml
+
+- name: 'Extract Doom64 pk3'
+  import_tasks: extract_doom64_pk3.yml
+
+- name: 'Compiling the Game'
+  import_tasks: compile_doom64ex.yml
+
+- name: 'Move Original Room To Install Dir and Generate Texture PAK'
+  import_tasks: copy_doom64_rom.yml
+
+# Sometimes Reports Failure Previous Stage but the Game is correctly build!!!:
+#
+- name: 'Execute Game'
+  command: "{{ doom64ex_install_path }}/build/doom64ex"
+  args:
+    chdir: '{{ doom64ex_install_path }}/build'

@@ -1,0 +1,24 @@
+# Copy the required rom to allow PAK Generation
+#
+- name: 'Copy ROM From Role Files Directory'
+  copy:
+    src: "{{ role_path }}/files/original_n64_rom/doom64.z64"
+    dest: "{{ doom64ex_install_path }}/build/doom64.z64"
+    mode: '0755'
+
+# Generate .PAK
+# Note:
+#  - The Game is correctly Created but the Stdout generate Ansible detect error
+#    . Because of it I decide "ignore errors here"
+#
+- name: 'Generate .PAK FROM ROM'
+  command: "{{ doom64ex_install_path }}/build/doom64ex -wadgen ./doom64.z64"
+  args:
+    chdir: '{{ doom64ex_install_path }}/build'
+  ignore_errors: yes
+
+- name: 'Clean ROM File'
+  file:
+    path: '{{ doom64ex_install_path }}/build/doom64.z64'
+    state: absent
+    

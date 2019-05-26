@@ -1,0 +1,7 @@
+---
+- hosts: mylocalhost
+  roles:
+    - name: doom64ex_install
+      tag: doom64exinstall
+
+    

@@ -1,0 +1,31 @@
+# Check the next notes before install:
+#  - https://wiki.ubuntu.com/ToolChain
+#
+
+- name: 'Add The Repository for ToolChanin in Ubuntu'
+  apt_repository: 
+    repo: 'ppa:ubuntu-toolchain-r/test'
+  become: yes
+  become_method: sudo
+
+- name: 'Install Required Packages'
+  apt: 
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+  with_items:
+    - build-essential 
+    - gcc-6 
+    - g++-6
+    - git
+    - cmake
+    - libsdl2-dev 
+    - libsdl2-net-dev 
+    - zlib1g-dev 
+    - libpng-dev
+  become: yes
+  become_method: sudo
+   
+

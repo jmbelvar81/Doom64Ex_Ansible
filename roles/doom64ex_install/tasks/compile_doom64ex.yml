@@ -1,0 +1,20 @@
+- name: 'Create Dir to Compile Code'
+  file:
+    path: '{{ doom64ex_install_path }}/build' 
+    state: directory
+    mode: '0755'
+
+- name: 'Cmake to Generate Make Files'
+  command: cmake ..
+  args:
+    chdir: '{{ doom64ex_install_path }}/build'
+
+- name: 'Make Execution'
+  command: make 
+  args:
+    chdir: '{{ doom64ex_install_path }}/build'
+
+- name: 'Install with Make'
+  command: sudo make install 
+  args:
+    chdir: '{{ doom64ex_install_path }}/build'

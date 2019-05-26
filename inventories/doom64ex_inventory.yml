@@ -1,0 +1,7 @@
+[mylocalhost]
+#127.0.0.1
+localhost ansible_connection=local ansible_become_password=<include your password here>
+
+
+[mylocalhost:vars]
+become=yes

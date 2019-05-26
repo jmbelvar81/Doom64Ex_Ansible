@@ -1,0 +1,6 @@
+---
+# defaults file for doom64ex_install
+
+# Install Path for the Game:
+#
+doom64ex_install_path: '~/Doom64EX/'

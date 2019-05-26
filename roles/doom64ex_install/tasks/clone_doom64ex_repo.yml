@@ -1,0 +1,6 @@
+- name: 'Clone the Doom64Ex Main Repo'
+  git:
+    dest: '{{ doom64ex_install_path }}'
+    clone: yes
+    recursive: yes
+    repo: 'https://github.com/svkaiser/Doom64EX'
