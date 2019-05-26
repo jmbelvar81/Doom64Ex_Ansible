@@ -7,6 +7,10 @@ The original Doom64EX referenced in this *"automation"* sourcecode can be found 
 
   - https://github.com/svkaiser/Doom64EX
 
+More information about *original authors of the port/engine for Doom64* on this blog:
+
+  - https://doom64ex.wordpress.com/
+
 ## Objective
 
 This Repository contains:
